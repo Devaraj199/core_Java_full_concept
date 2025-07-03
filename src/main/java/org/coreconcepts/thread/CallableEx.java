@@ -10,7 +10,7 @@ public class CallableEx {
         Callable<List<Integer>> numberListTask  = () -> List.of(23,45,67,68);
         ExecutorService executorService = Executors.newSingleThreadExecutor();
         Future<String> stringFuture = executorService.submit(callable);
-        Future<List<Integer>> numberListFuture  = executorService.submit(numberListTask );
+        Future<List<Integer>> numberListFuture  = executorService.submit(numberListTask);
         String result = null;
         List<Integer> list = null;
         try {

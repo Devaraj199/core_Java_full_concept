@@ -20,7 +20,7 @@ public class ArrayPractice {
         System.out.println(average);
       int[] sortedArray = Arrays.stream(numbers).sorted().toArray();
       List<Integer> list = Arrays.stream(numbers).boxed().toList();
-      List<Integer> list1 = Arrays.stream(sortedArray).mapToObj(Integer::valueOf).toList();
+      List<Integer> list1 = Arrays.stream(sortedArray).boxed().toList();
 
         System.out.println(list1.get(2));
         System.out.println(list1);
@@ -48,6 +48,7 @@ public class ArrayPractice {
         List<String> list2 = Arrays.stream(str).sorted(Comparator.comparing(s -> s)).toList();
         List<String> list3 = Arrays.stream(str).sorted(Comparator.reverseOrder()).toList();
         String joining = Arrays.stream(str).collect(Collectors.joining("*"));
+        String joining1 = String.join("%",str);
         Map<String, Long> groupBys = Arrays.stream(str).collect(Collectors.groupingBy(s -> s, Collectors.counting()));
         Arrays.stream(str).reduce((s1, s2) -> str.length < s2.length() ? s1 : s2).ifPresent(System.out::println);
         Map<String, Integer> strLengthMap = Arrays.stream(str).collect(Collectors.toMap(s -> s, String::length,(a,b)->b));

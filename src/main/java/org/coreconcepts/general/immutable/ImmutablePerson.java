@@ -13,7 +13,7 @@ public final class ImmutablePerson {
         this.name = name;
         this.age = age;
         this.hobbies = hobbies != null ?
-                Collections.unmodifiableList(new ArrayList<>(hobbies)) :
+                List.copyOf(hobbies) :
                 Collections.emptyList(); // List.copyOf(hobbies)
     }
 

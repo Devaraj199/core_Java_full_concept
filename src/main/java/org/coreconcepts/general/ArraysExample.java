@@ -7,5 +7,6 @@ public class ArraysExample {
         int[] x = {23,33,1,4};
         int[] y = {23,33,1,44};
         System.out.println(Arrays.equals(x, y));
+
     }
 }

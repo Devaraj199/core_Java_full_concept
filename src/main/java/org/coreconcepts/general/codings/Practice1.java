@@ -62,8 +62,45 @@ public class Practice1 {
 
         int[] newArray1 = {2,0,-7,8,9,0,0,-3,-7};
         IntStream concat = IntStream.concat(Arrays.stream(newArray1).filter(n -> n != 0), Arrays.stream(newArray1).filter(n -> n == 0));
-        int[] result = concat.toArray();
-        System.out.println("Result..."+Arrays.toString(result));
+         int[] results =  concat.toArray();
+        System.out.println("Result..."+Arrays.toString(results));
+
+        int[] values = {15,1,2,3,9,8};
+        int[] values1 = {15,3,4,5,6};
+        int[] common = new int[values.length];
+        int k=0;
+        for(int i =0;i<values.length;i++){
+            for(int j = 0;j<values1.length;j++){
+                if(values[i]!=values1[j]){
+                    boolean alreadyExists = false;
+                    for (int xy = 0; xy < k; xy++) {
+                        if (common[xy] == values[i]) {
+                            alreadyExists = true;
+                            break;
+                        }
+                    }
+                    if (!alreadyExists) {
+                        common[k] = values[i];
+                        k++;
+                    }
+                    break;
+                }
+            }
+        }
+
+//        int j = 0;
+//        for(int i = values.length-1;i>=0;i--){
+//                if(!(i<j)){
+//                    int temp = values[i];
+//                    values[i]=values[j];
+//                    values[j]=temp;
+//                    j++;
+//                }
+//
+//
+//        }
+
+        System.out.println("Reverse of number: "+ Arrays.toString(common));
     }
 
 }

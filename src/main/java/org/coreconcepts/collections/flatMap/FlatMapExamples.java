@@ -1,10 +1,6 @@
 package org.coreconcepts.collections.flatMap;
 
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
-import java.util.stream.Collectors;
+import java.util.*;
 
 public class FlatMapExamples {
     public static void main(String[] args) {
@@ -17,6 +13,7 @@ public class FlatMapExamples {
         Order order1 = new Order("Notebook");
         Order order2 = new Order("Pen");
         Order order3 = new Order("Laptop");
+        Order order4 = new Order("pen");
         List<Customer> customers = Arrays.asList(new Customer(Arrays.asList(new Order("Notebook"),new Order("Pen")))
                 ,new Customer(Arrays.asList(new Order("Laptop"),new Order("Mobile"))));
         List<Order> orderList = customers.stream().flatMap(c -> c.getOrders().stream()).toList();
